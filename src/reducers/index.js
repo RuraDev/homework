@@ -1,0 +1,54 @@
+import entityReducerCreator from './entityReducerCreator';
+
+import { combineReducers } from 'redux';
+import { routerReducer as router } from 'react-router-redux';
+
+import {
+  CHARACTERS_SET_CURRENT_PAGE,
+  FETCH_CHARACTERS_LIST_START,
+  FETCH_CHARACTERS_LIST_SUCCESS,
+  FETCH_CHARACTERS_LIST_ERROR
+} from '../constants/characters';
+
+import {
+  PLANETS_SET_CURRENT_PAGE,
+  FETCH_PLANETS_LIST_START,
+  FETCH_PLANETS_LIST_SUCCESS,
+  FETCH_PLANETS_LIST_ERROR,
+  FETCH_PLANET_START,
+  FETCH_PLANET_SUCCESS,
+  FETCH_PLANET_ERROR
+} from '../constants/planets';
+
+import {
+  FETCH_SPECIES_START,
+  FETCH_SPECIES_SUCCESS,
+  FETCH_SPECIES_ERROR
+} from '../constants/species';
+
+export default combineReducers({
+  characters: entityReducerCreator({
+    SET_CURRENT_PAGE  : CHARACTERS_SET_CURRENT_PAGE,
+    FETCH_LIST_START  : FETCH_CHARACTERS_LIST_START,
+    FETCH_LIST_SUCCESS: FETCH_CHARACTERS_LIST_SUCCESS,
+    FETCH_LIST_ERROR  : FETCH_CHARACTERS_LIST_ERROR
+  }),
+
+  planets   : entityReducerCreator({
+    SET_CURRENT_PAGE  : PLANETS_SET_CURRENT_PAGE,
+    FETCH_LIST_START  : FETCH_PLANETS_LIST_START,
+    FETCH_LIST_SUCCESS: FETCH_PLANETS_LIST_SUCCESS,
+    FETCH_LIST_ERROR  : FETCH_PLANETS_LIST_ERROR,
+    FETCH_ITEM_START  : FETCH_PLANET_START,
+    FETCH_ITEM_SUCCESS: FETCH_PLANET_SUCCESS,
+    FETCH_ITEM_ERROR  : FETCH_PLANET_ERROR
+  }),
+
+  species   : entityReducerCreator({
+    FETCH_ITEM_START  : FETCH_SPECIES_START,
+    FETCH_ITEM_SUCCESS: FETCH_SPECIES_SUCCESS,
+    FETCH_ITEM_ERROR  : FETCH_SPECIES_ERROR
+  }),
+
+  router
+});

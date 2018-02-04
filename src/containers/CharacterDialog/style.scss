@@ -1,0 +1,19 @@
+.dialog {
+  width: 400px;
+}
+
+.info {
+  padding-top: 16px;
+}
+
+.item {
+  display: block;
+  padding-left: 16px;
+  position: relative;
+}
+
+.item:before {
+  content: '»';
+  margin-right: 6px;
+  color: #000;
+}
